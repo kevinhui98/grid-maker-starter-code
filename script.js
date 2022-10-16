@@ -12,13 +12,15 @@ function addR() {
     // grid.appendChild(row);
     let newRow = grid.insertRow();
     newRow.setAttribute("id", "row" + numRows);
+    numCols = 0;
     console.log(numRows);
 }
 // Add a column
 function addC() {
     // alert("Clicked Add Col"); // Replace this line with your code.
     let row = document.getElementById("row" + (numRows));
-    row.insertCell();
+    let newCol = row.insertCell();
+    newCol.setAttribute("id", "col" + numCols);
     numCols++;
     console.log(numCols);
 }
