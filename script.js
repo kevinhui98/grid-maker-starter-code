@@ -10,7 +10,8 @@ let cell = document.createElement("td");
 function addR() {
     // alert("Clicked Add Row"); // Replace this line with your code.
     numRows++;
-    grid.appendChild(row);
+    // grid.appendChild(row);
+    grid.insertRow();
     console.log(numRows);
 }
 
