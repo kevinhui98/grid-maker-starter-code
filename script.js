@@ -3,7 +3,6 @@ let numRows = 0;
 let numCols = 0;
 let colorSelected;
 let grid = document.getElementById("grid");
-let row = document.createElement("tr");
 let cell = document.createElement("td");
 
 // Add a row
@@ -11,15 +10,18 @@ function addR() {
     // alert("Clicked Add Row"); // Replace this line with your code.
     numRows++;
     // grid.appendChild(row);
-    grid.insertRow();
+    let newRow = grid.insertRow();
+    newRow.setAttribute("id", "row" + numRows);
     console.log(numRows);
 }
-
 // Add a column
 function addC() {
-    alert("Clicked Add Col"); // Replace this line with your code.
+    // alert("Clicked Add Col"); // Replace this line with your code.
+    let row = document.getElementById("row" + (numRows));
+    row.insertCell();
+    numCols++;
+    console.log(numCols);
 }
-
 // Remove a row
 function removeR() {
     alert("Clicked Remove Row"); // Replace this line with your code.
