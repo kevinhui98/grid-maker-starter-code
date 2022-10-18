@@ -10,9 +10,9 @@ function addR() {
     // alert("Clicked Add Row"); // Replace this line with your code.
     numRows++;
     // grid.appendChild(row);
+    numCols = 0;
     let newRow = grid.insertRow();
     newRow.setAttribute("id", "row" + numRows);
-    numCols = 0;
     console.log(numRows);
 }
 // Add a column
@@ -26,7 +26,10 @@ function addC() {
 }
 // Remove a row
 function removeR() {
-    alert("Clicked Remove Row"); // Replace this line with your code.
+    // alert("Clicked Remove Row"); // Replace this line with your code.
+    grid.deleteRow(numRows - 1);
+    numRows--;
+    console.log(numRows);
 }
 
 // Remove a column
