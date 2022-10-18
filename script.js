@@ -31,7 +31,11 @@ function removeR() {
 
 // Remove a column
 function removeC() {
-    alert("Clicked Remove Col"); // Replace this line with your code.
+    // alert("Clicked Remove Col"); // Replace this line with your code.
+    let row = document.getElementById("row" + (numRows));
+    row.deleteCell(numCols - 1);
+    numCols--;
+    console.log(numCols);
 }
 
 // Set global variable for selected color
