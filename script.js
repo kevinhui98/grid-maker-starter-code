@@ -21,6 +21,7 @@ function addC() {
     let row = document.getElementById("row" + (numRows));
     let newCol = row.insertCell();
     newCol.setAttribute("id", "col" + numCols);
+
     numCols++;
     console.log(numCols);
 }
@@ -44,14 +45,30 @@ function selectColor() {
     console.log(colorSelected);
 }
 
-// Fill all uncolored cells
+// Fill all uncolored cells with selected color
 function fillU() {
     alert("Clicked Fill All Uncolored"); // Replace this line with your code.
 }
 
-// Fill all cells
+// Fill all cells with selected color
 function fillAll() {
-    alert("Clicked Fill All"); // Replace this line with your code.
+    // alert("Clicked Fill All"); // Replace this line with your code.
+    let body = grid.childNodes;
+    let rows = body[1].childNodes;
+    for (const Row in rows) {
+        if (Object.hasOwnProperty.call(rows, Row)) {
+            const element = rows[Row];
+            let columns = element.childNodes;
+            for (const Col in columns) {
+                if (Object.hasOwnProperty.call(columns, Col)) {
+                    const el = columns[Col];
+                    el.style.backgroundColor = colorSelected;
+                }
+            }
+        }
+    }
+
+
 }
 
 // Clear all cells
