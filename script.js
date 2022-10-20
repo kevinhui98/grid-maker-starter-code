@@ -50,7 +50,24 @@ function selectColor() {
 
 // Fill all uncolored cells with selected color
 function fillU() {
-    alert("Clicked Fill All Uncolored"); // Replace this line with your code.
+    // alert("Clicked Fill All Uncolored"); // Replace this line with your code.
+    let body = grid.childNodes;
+    let rows = body[1].childNodes;
+    for (const Row in rows) {
+        // console.log(Row);
+        let cols = rows[Row].childNodes;
+        for (const columns in cols) {
+            // console.log(columns);
+            if (Object.hasOwnProperty.call(cols, columns)) {
+                if (!cols[columns].style.backgroundColor) {
+                    console.log(cols[columns].id);
+                    cols[columns].style.backgroundColor = colorSelected;
+
+                }
+
+            }
+        }
+    }
 }
 
 // Fill all cells with selected color
@@ -59,20 +76,19 @@ function fillAll() {
     let body = grid.childNodes;
     let rows = body[1].childNodes;
     for (const Row in rows) {
-        if (Object.hasOwnProperty.call(rows, Row)) {
-            const element = rows[Row];
-            let columns = element.childNodes;
-            for (const Col in columns) {
-                if (Object.hasOwnProperty.call(columns, Col)) {
-                    const el = columns[Col];
-                    el.style.backgroundColor = colorSelected;
-                }
+        const element = rows[Row];
+        let columns = element.childNodes;
+        for (const Col in columns) {
+            if (Object.hasOwnProperty.call(columns, Col)) {
+                const el = columns[Col];
+                el.style.backgroundColor = colorSelected;
             }
         }
     }
-
-
 }
+
+
+
 
 // Clear all cells
 function clearAll() {
