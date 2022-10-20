@@ -46,6 +46,14 @@ function removeC() {
 function selectColor() {
     colorSelected = document.getElementById("selectedColorId").value;
     console.log(colorSelected);
+    const clickedCell = document.getElementsByTagName('td');
+    for (const clicked of clickedCell) {
+        clicked.addEventListener('click', function () {
+            clicked.style.backgroundColor = colorSelected;
+            console.log("parent element: " + clicked.parentElement.id);
+            console.log(clicked.id + ": " + colorSelected);
+        })
+    }
 }
 
 // Fill all uncolored cells with selected color
