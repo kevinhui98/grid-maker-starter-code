@@ -13,7 +13,7 @@ function addR() {
     numCols = 0;
     let newRow = grid.insertRow();
     newRow.setAttribute("id", "row" + numRows);
-    console.log(numRows);
+    // console.log(numRows);
 }
 // Add a column
 function addC() {
@@ -23,14 +23,14 @@ function addC() {
     newCol.setAttribute("id", "col" + numCols);
 
     numCols++;
-    console.log(numCols);
+    // console.log(numCols);
 }
 // Remove a row
 function removeR() {
     // alert("Clicked Remove Row"); // Replace this line with your code.
     grid.deleteRow(numRows - 1);
     numRows--;
-    console.log(numRows);
+    // console.log(numRows);
 }
 
 // Remove a column
@@ -39,7 +39,7 @@ function removeC() {
     let row = document.getElementById("row" + (numRows));
     row.deleteCell(numCols - 1);
     numCols--;
-    console.log(numCols);
+    // console.log(numCols);
 }
 
 // Set global variable for selected color
@@ -50,8 +50,8 @@ function selectColor() {
     for (const clicked of clickedCell) {
         clicked.addEventListener('click', function () {
             clicked.style.backgroundColor = colorSelected;
-            console.log("parent element: " + clicked.parentElement.id);
-            console.log(clicked.id + ": " + colorSelected);
+            // console.log("parent element: " + clicked.parentElement.id);
+            // console.log(clicked.id + ": " + colorSelected);
         })
     }
 }
@@ -68,8 +68,8 @@ function fillU() {
             // console.log(columns);
             if (Object.hasOwnProperty.call(cols, columns)) {
                 if (!cols[columns].style.backgroundColor) {
-                    console.log(cols[columns].id);
                     cols[columns].style.backgroundColor = colorSelected;
+                    // console.log(cols[columns].id);
 
                 }
 
@@ -100,5 +100,18 @@ function fillAll() {
 
 // Clear all cells
 function clearAll() {
-    alert("Clicked Clear All"); // Replace this line with your code.
+    // alert("Clicked Clear All"); // Replace this line with your code.
+    let body = grid.childNodes;
+    let rows = body[1].childNodes;
+    for (const Row in rows) {
+        const element = rows[Row];
+        let columns = element.childNodes;
+        for (const Col in columns) {
+            if (Object.hasOwnProperty.call(columns, Col)) {
+                const el = columns[Col];
+                // el.style.backgroundColor = "";
+                el.removeAttribute("style");
+            }
+        }
+    }
 }
